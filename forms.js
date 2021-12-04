@@ -1,7 +1,7 @@
 window.addEventListener( "load", function () {
     function sendData() {
         const sendRequest = new XMLHttpRequest();
-        const signupInfo = new FormData(form);
+        const signupInfo = new URLSearchParams( FormData(form));
         sendRequest.addEventListener( "error", function(event){
             alert( 'Submission unseuccessful! Please try again.');
         });
@@ -9,7 +9,6 @@ window.addEventListener( "load", function () {
             alert( 'Your account was created');
         });
         sendRequest.open ("POST", "http://localhost:5000/app/new/user");
-        sendRequest.send(signupInfo);
     }
     const form = document.getElementById("signup");
 
